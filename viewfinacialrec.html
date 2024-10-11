@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+         VIEW FINANCIAL RECORDS
+        </title>
+        <a href="index.html"><h3>Home</h3></a>
+        <link rel="stylesheet" href="styles.css">
+        <img src="images/farm records.jpg" class="imgcenter" alt="LOGO" width="200px" height="200px">
+    </head>
+    <body>
+        <table id="finacial-records">
+            <thead>
+                <tr>
+                    <th>transcation_name</th>
+                    <th>description</th>
+                    <th>amount</th>
+                    <th>date</th>
+    
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <script>
+            fetch('/api/view/finacial_records'
+
+            )
+                .then(response=>response.json())
+                .then(data=>{
+                    const tableBody = document.querySelector("#finacial-records tbody")
+                    data.forEach(farmer=>{
+                    const row = document.createElement("tr");
+                    row.innerHTML=`
+                        <td>${farmer.transaction-name}</td>
+                        <td>${farmer.description}</td>
+                        <td>${farmer.amount}</td>
+                        <td>${farmer.date}</td>
+                        `;
+                        tableBody.appendChild(row);
+                
+
+                        
+
+
+
+
+
+                    });
+                })
+                .catch(error=>console.error('ERROR FETCHING DATA:',console.error()
+                ));
+                
+
+        </script>
+    </body>
+</html>

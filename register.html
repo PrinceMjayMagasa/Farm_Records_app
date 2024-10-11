@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content="width =device-width, initial-scale =1.0">
+    <title>LOGIN</title>
+    <a href="index.html"><h3>Home</h3></a>
+    <link rel="stylesheet" href="styles.css">
+    <img src="images/farm records.jpg" class="imgcenter" alt="LOGO" width="200px" height="200px">
+    
+</head>
+<body>
+<form id="regForm">
+    <h2>REGISTER </h2>
+    <label for ="user_name">USERNAME</label>
+    <input type="text" id="user_name" name="user_name" placeholder="Enter your name">
+    <br>
+    <label for ="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email">
+    <br>
+    <label for = "password">Password</label>
+    <input type ="password" id="password" name="password" placeholder="Enter your password">
+    <br>
+    <input type ="submit" value="REGISTER">
+    
+    
+</form>
+<script>
+      const registerForm = document.getElementById("regForm");
+
+registerForm.addEventListener('submit', function (event){
+    event.preventDefault();
+
+    
+    const user_name = document.getElementById('user_name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    
+    fetch("/api/farmer/registration", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({user_name,email, password })
+        })
+
+        .then(response => response.json())
+        .then(data=>{
+            if (data.success){
+                alert('Registration Successful');
+                registerForm.reset();
+
+            }else{
+                alert(data.message||"failed to register")
+            }
+        })
+        .catch(error=>
+            console.error('ERROR:',error)
+        );
+    });
+</script>
+</body>
+</html>

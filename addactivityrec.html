@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ADD ACTIVITY</title>
+        <link rel="stylesheet" href="styles.css">
+           <img src="images/farm records.jpg" class="imgcenter" alt="LOGO" width="200px" height="200px">
+    </head>
+    <body>
+        <form id="activityForm">
+            <h3>ENTER YOUR RECORD DETAILS</h3>
+            <label for ="name">Activity Name</label>
+            <input type="text" name="name" id="name" placeholder="Activity name">
+            <br>
+            <label for = "description ">Description</label>
+            <input type="text" name="description" id="description" placeholder="Please describe your transaction">
+             <br>
+             <label for="date">Date</label>
+             <input type="date" name="date" id="date">
+             <br>
+             <input type="submit" value="Save Record">
+             
+
+
+        </form>
+        <script>
+                const activityForm = document.getElementById("activityForm");
+
+registerForm.addEventListener('submit', function (event){
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const description = document.getElementById('description').value;
+    const date = document.getElementById('date').value;
+    
+    fetch("/api/add/activity_record", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name,description,date })
+        })
+
+        .then(response => response.json())
+        .then(data=>{
+            if (data.success){
+                alert('Activity added');
+                activityForm.reset();
+
+            }else{
+                alert(data.message||"failed to add activity")
+            }
+        })
+        .catch(error=>
+            console.error('ERROR:',error)
+        );
+    });
+        </script>
+    </body>
+</html>

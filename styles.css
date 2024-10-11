@@ -1,0 +1,123 @@
+header{
+    width: 80%;
+    background-color:green;
+    text-align: center;
+    color:white;
+    padding: 15px;
+    margin-bottom:100px ;
+    margin-top: 20px;
+}
+body{
+    background-color: rgb(193, 211, 165);
+}
+.paraAbout{
+    color: white;
+    background-color: rgb(90, 223, 90);
+    background-blend-mode: color;
+    padding: 15px;
+    margin-bottom:100px ;
+    margin-top: 20px;
+    font-size:large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border:solid;
+    border-color: green;
+    width: 80%;
+    height: 50%;
+    text-align: center;
+
+
+}
+h3{
+    color: green;
+}
+button{
+    
+    margin-top:10px;
+    padding: 5px;
+    color: #155f15;
+    background-color:rgb(248, 231, 133);
+    font-size: medium;
+    border:solid;
+    border-radius: 1px;
+}
+:hover{
+    cursor: pointer;
+    color: #5adf5a;
+}
+footer{
+    color: white;
+    background-color: #5adf5a ;
+    margin-top: 180px;
+    border-top:solid ;
+    border-color: green;
+    padding: 15px;
+
+}
+form{
+    background-color:#5adf5a;
+    padding: 8px;
+    margin-top: 50px;
+
+}
+form label{
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+
+}
+form input{
+    width: 50%;
+    height: 50%;
+    padding-left: 8px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    
+    
+
+}
+
+form input[type ="submit"]{
+ margin-top:10px;
+ padding: 5px;
+ color: #155f15;
+ background-color:rgb(248, 231, 133);
+ font-size: medium;
+ border:solid;
+ border-radius: 1px;
+
+
+}
+form input[type ="submit"]:hover{
+    cursor: pointer;
+    color: #5adf5a;
+}
+
+.imgcenter{
+    display: block;
+    margin-left: 30%;
+    margin-right: 50%;
+    border-radius: 50%;
+    
+    
+    
+}
+table{
+    width:80%;
+    border-collapse: collapse;
+    margin:20px;
+    font-size: 18px;
+    text-align: center;
+
+
+}
+th,td{
+    padding: 12px 15px;
+    border: 2px solid;
+}
+thead{
+    background-color:rgb(70, 209, 70) ;
+    color: #613a17;
+}
+tbody tr{
+    background-color: #f5c295;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+         VIEW FINANCIAL RECORDS
+        </title>
+        <a href="index.html"><h3>Home</h3></a>
+        <link rel="stylesheet" href="styles.css">
+        <img src="images/farm records.jpg" class="imgcenter" alt="LOGO" width="200px" height="200px">
+    </head>
+    <body>
+        <table id="activity-records">
+            <thead>
+                <tr>
+                    <th>activity_name</th>
+                    <th>description</th>
+                    <th>date</th>
+    
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <script>
+            fetch('/api/view/activity_records'
+
+            )
+                .then(response=>response.json())
+                .then(data=>{
+                    const tableBody = document.querySelector("#activity-records tbody")
+                    data.forEach(farmer=>{
+                    const row = document.createElement("tr");
+                    row.innerHTML=`
+                        <td>${farmer.activity-name}</td>
+                        <td>${farmer.description}</td>
+                        <td>${farmer.date}</td>
+                        `;
+                        tableBody.appendChild(row);
+                
+
+                        
+
+
+
+
+
+                    });
+                })
+                .catch(error=>console.error('ERROR FETCHING ACTIVITY RECORDS:',console.error()
+                ));
+                
+
+        </script>
+    </body>
+</html>
